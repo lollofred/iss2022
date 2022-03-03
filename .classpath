@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="prova/app/src/main/java"/>
+	<classpathentry kind="src" path="prova/app/src/test/java"/>
+	<classpathentry kind="lib" path="it.unibo.radarSystem22/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="prova/app/build/libs/app.jar"/>
+	<classpathentry kind="lib" path="prova/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="unibolibs/2p301.jar"/>
+	<classpathentry kind="lib" path="unibolibs/it.unibo.qakactor-2.5.jar"/>
+	<classpathentry kind="lib" path="unibolibs/radarPojo.jar"/>
+	<classpathentry kind="lib" path="unibolibs/uniboInterfaces.jar"/>
+	<classpathentry kind="lib" path="unibolibs/unibonoawtsupports.jar"/>
+	<classpathentry kind="output" path="prova/app/build/classes/java/main"/>
+</classpath>
