@@ -189,7 +189,7 @@ div.imagedesc{
     
 <head>
    
-<title>TemplateToFill</title></head>
+<title>radarSystem22</title></head>
     
 <body>
 <div id="top">
@@ -198,18 +198,23 @@ div.imagedesc{
 
 <div class="body"> 
 <h2>Introduction</h2>
- 
+Primo progetto.
  
 <h2>Requirements</h2>
 
 <div class="remark">
-    Si desidera costruire un’applicazione software capace di:
-
-    (requisito radarGui) mostrare le distanze rilevate da un sensore Sonar``HC-SR04`` connesso a un RaspberryPi su un display (RadarDisplay) a forma di radar connesso a un PC.
+ 
+    Si desidera costruire un'applicazione software capace di:
     
-    _images/radarDisplay.png
-    (requisito ledAlarm) accendere un Led se la distanza rilevata dal Sonar è inferiore a un valore limite prefissato denominato DLIMIT.
-</div>
+    <ul>
+    <li>(requisito <b>radarGui</b>) mostrare le distanze rilevate da un sensore Sonar <tt>HC-SR04</tt>
+     connesso a un RaspberryPi su un display (RadarDisplay) a forma di radar connesso a un PC.
+    
+    <center><img src="img/radarDisplay.png" width="10%"></img></center>
+    <li>(requisito <b>ledAlarm</b>) accendere un Led se la distanza rilevata dal Sonar 
+    è inferiore a un valore limite prefissato denominato <tt>DLIMIT</tt>.
+    </li> 
+    </div>
 
  
 
@@ -226,6 +231,18 @@ div.imagedesc{
 
 <h2>Project</h2> 
  
+<ul>
+    <li>Collegamento del sonar e del led al Raspberry Pi
+
+    <li>Modificata la classe RadarUsageMain per implementare la parte Server (comunicazione tra socket)
+
+    <li>Creata classe Client sul Raspberry Pi per implementare la comunicazione della distanza al display a forma di radar (fornito)
+
+
+    <li><b>Esecuzione:</b> Mettere in esecuzione la classe server (RadarUsageMain.java), eseguire sul Raspberry Pi il comando "python distance.py | tee >(java Client) >(python LedControl.py)" per inviare la distanza al radar e accendere/spegnere il led se la distanza è inferiore al valore DLIMIT
+ 
+    </li> 
+
 </div>
 
 <h2>Testing</h2> 
@@ -249,9 +266,15 @@ div.imagedesc{
 <br/><br/> 	
 </div>  
 
-<div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
-By Lorenzo Di Palma email: lorenzo.dipalma2@studio.unibo.it  
-<img src="./img/lorenzo.jpg" alt="mbot" width="15%" height="15%">
+<div style="background-color:rgba(86, 56, 253, 0.9); width:100%;text-align:left;color:white">
+    <p style="float: left; width: 78%; padding: 5px">
+		By <b>Lorenzo Di Palma</b><br/><br/>
+		<span><b>ISS repo: <a id="issRepo" style="color:white" href="https://github.com/lollofred/iss2022">https://github.com/lollofred/iss2022</a></b></span><br/><br/>
+		Contacts:<br/>
+		e-mail: lorenzo.dipalma2@studio.unibo.it  <br/>
+		GitHub: <a id="github" style="color:white" href="https://github.com/lollofred">lollofred</a><br/>
+	</p>
+<img src="./img/lorenzo.jpg" alt="Lorenzo Di Palma" width="20%" height="25%">
 </div> 
 </body>
 </html>
