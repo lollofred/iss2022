@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!--
 <link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
 <script type="text/javascript" src="../css/issStyle.js"></script>
@@ -224,23 +225,28 @@ Primo progetto.
 </div>
 
 <h2>Problem analysis</h2>
- 
-
+<div class="remark">
+Il Led si accenda se pongo un ostacolo a distanza <code class="docutils literal notranslate"><span class="pre">d&lt;DILIMT</span></code>
+        dal Sonar e che il Led si spenga non appena porto l’ostacolo ad una  distanza <code class="docutils literal notranslate"><span class="pre">d&gt;DILIMT</span></code>.
+        In ogni caso posso vedere illuminarsi un punto sul <code class="docutils literal notranslate"><span class="pre">RadarDisplay</span></code> a distanza <code class="docutils literal notranslate"><span class="pre">d</span></code>
+        dal centro lungo   una  retta che forma un angolo <span class="math notranslate nohighlight">\(\theta\)</span>
+        rispetto all’asse orizzontale del display.
+</div>
 <h2>Test plans</h2> 
-
-
+<div class="remark">
+Test funzionale per la verifica del comportamento del software da sviluppare.
+Tuttavia questo modo di procedere non è automatizzabile, in quanto richiede la presenza di un operatore umano.
+Nel seguito cercheremo di organizzare le cose in modo da permettere Test automatizzati.
+</div>
 <h2>Project</h2> 
  
 <ul>
     <li>Collegamento del sonar e del led al Raspberry Pi
 
-    <li>Modificata la classe RadarUsageMain per implementare la parte Server (comunicazione tra socket)
+    <li>Verifica che i collegamenti siano andati a buon fine tramite l'esecuzuzione di script python,c,bash
+    
 
-    <li>Creata classe Client sul Raspberry Pi per implementare la comunicazione della distanza al display a forma di radar (fornito)
-
-
-    <li><b>Esecuzione:</b> Mettere in esecuzione la classe server (RadarUsageMain.java), eseguire sul Raspberry Pi il comando "python distance.py | tee >(java Client) >(python LedControl.py)" per inviare la distanza al radar e accendere/spegnere il led se la distanza è inferiore al valore DLIMIT
- 
+    
     </li> 
 
 </div>
