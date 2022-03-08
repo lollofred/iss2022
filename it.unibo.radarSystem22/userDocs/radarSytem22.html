@@ -211,7 +211,7 @@ Primo progetto.
     <li>(requisito <b>radarGui</b>) mostrare le distanze rilevate da un sensore Sonar <tt>HC-SR04</tt>
      connesso a un RaspberryPi su un display (RadarDisplay) a forma di radar connesso a un PC.
     
-    <center><img src="img/radarDisplay.png" width="10%"></img></center>
+    <center><img src="img/radarDisplay.png" width="30%"></img></center>
     <li>(requisito <b>ledAlarm</b>) accendere un Led se la distanza rilevata dal Sonar 
     è inferiore a un valore limite prefissato denominato <tt>DLIMIT</tt>.
     </li> 
@@ -225,30 +225,33 @@ Primo progetto.
 </div>
 
 <h2>Problem analysis</h2>
-<div class="remark">
-Il Led si accenda se pongo un ostacolo a distanza <code class="docutils literal notranslate"><span class="pre">d&lt;DILIMT</span></code>
-        dal Sonar e che il Led si spenga non appena porto l’ostacolo ad una  distanza <code class="docutils literal notranslate"><span class="pre">d&gt;DILIMT</span></code>.
-        In ogni caso posso vedere illuminarsi un punto sul <code class="docutils literal notranslate"><span class="pre">RadarDisplay</span></code> a distanza <code class="docutils literal notranslate"><span class="pre">d</span></code>
-        dal centro lungo   una  retta che forma un angolo <span class="math notranslate nohighlight">\(\theta\)</span>
-        rispetto all’asse orizzontale del display.
-</div>
 <h2>Test plans</h2> 
-<div class="remark">
-Test funzionale per la verifica del comportamento del software da sviluppare.
-Tuttavia questo modo di procedere non è automatizzabile, in quanto richiede la presenza di un operatore umano.
-Nel seguito cercheremo di organizzare le cose in modo da permettere Test automatizzati.
-</div>
 <h2>Project</h2> 
+
+<h3>Fase Preliminare</h3>
  
 <ul>
     <li>Collegamento del sonar e del led al Raspberry Pi
 
-    <li>Verifica che i collegamenti siano andati a buon fine tramite l'esecuzuzione di script python,c,bash
-    
+    <li>Verifica che i collegamenti siano andati a buon fine tramite l'esecuzuzione di script python,c,bash :
+        <ul>
+            <li>LED:</li>
+       
+        <ul>
+            <li>Bash - <a id="file"  href="C:\ingegneria del software\lab2022\it.unibo.raspIntro2022\code\bash\led25OnOff.sh">led25OnOff</a></li>
+            <li>Bash - <a id="file"  href="C:\ingegneria del software\lab2022\it.unibo.raspIntro2022\code\bash\led25Gpio.sh">led25Gpio</a></li>
+            <li>Python - <a id="file"  href="C:\ingegneria del software\lab2022\it.unibo.raspIntro2022\code\python\ledPython25.py">ledPython25</a></li>
+        </ul>
+        <li>SONAR:</li>
+        <ul>
+            <li>C -<a id="file"  href="C:\ingegneria del software\lab2022\it.unibo.raspIntro2022\code\c\SonarAlone.c">SonarAlone</a></li>
+            <li>Python - <a id="file"  href="C:\ingegneria del software\lab2022\it.unibo.raspIntro2022\code\python\sonar.py">sonar</a></li>
+        </ul>
+    </ul>
 
     
     </li> 
-
+</ul>
 </div>
 
 <h2>Testing</h2> 
