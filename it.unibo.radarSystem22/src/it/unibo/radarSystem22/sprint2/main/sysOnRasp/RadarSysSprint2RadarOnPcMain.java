@@ -27,7 +27,7 @@ public class RadarSysSprint2RadarOnPcMain implements IApplication{
 	
 	public void setup(  )  {	
  		RadarSystemConfig.serverPort        = 8080;		
- 		RadarSystemConfig.hostAddr          = "localhost";
+ 		RadarSystemConfig.hostAddr          = "192.168.235.238";
 	}
 	
 	public void configure(  )  {	

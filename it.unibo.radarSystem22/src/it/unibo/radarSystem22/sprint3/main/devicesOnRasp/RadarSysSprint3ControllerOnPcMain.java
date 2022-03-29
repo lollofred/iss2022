@@ -48,8 +48,9 @@ public class RadarSysSprint3ControllerOnPcMain implements IApplication{
 		
 		RadarSystemConfig.DLIMIT      		= 70;  
 		RadarSystemConfig.RadarGuiRemote    = false;		
-		RadarSystemConfig.raspAddr          = "192.168.1.148"; //"192.168.1.9";		 	
+		RadarSystemConfig.raspAddr          = "192.168.235.252"; //"192.168.1.9";		 	
 		RadarSystemConfig.protcolType       = ProtocolType.udp;	
+		RadarSystemConfig.ledPort = 8010;
 		
 		CommSystemConfig.tracing            = false;
 	}

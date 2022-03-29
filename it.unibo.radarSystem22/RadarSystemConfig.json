@@ -5,8 +5,8 @@
 "testing"          : "false",
 "protocolType"	   : "tcp",
 
-"hostAddr"         : "93.39.20.101",
-"raspAddr"         : "192.168.1.148",
+"hostAddr"         : "192.168.235.238",
+"raspAddr"         : "192.168.235.252",
 "serverPort"       : "8023",
 "ledPort"          : "8010",
 "sonarPort"        : "8015"
