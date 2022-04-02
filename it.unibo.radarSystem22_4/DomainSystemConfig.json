@@ -3,11 +3,11 @@
 "sonarObservable"  : "false",
 
 
-"simulation"       : "true",
+"simulation"       : "false",
 "sonarDistanceMax" : "150",
 "sonarDelay"       : "200",
 "DLIMIT"           : "70",
-"ledGui"           : "true",
+"ledGui"           : "false",
 "tracing"          : "false",
 "testing"          : "false"
 }

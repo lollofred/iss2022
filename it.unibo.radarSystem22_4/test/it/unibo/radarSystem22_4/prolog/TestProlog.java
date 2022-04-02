@@ -28,10 +28,11 @@ public class TestProlog {
  	    Struct payload   = (Struct) cmdAsTerm.getArg(4);
 	    ColorsOut.out( "payload=" + payload );
 	    assertEquals( payload.toString(), "turn(off)");
-	    Term onOff       = payload.getArg(0);
-	    ColorsOut.out( "onOff=" + onOff );
-	    assertEquals( onOff.toString(), "off");		
-	}
+    	Term onOff       = payload.getArg(0);
+ 	    ColorsOut.out( "onOff=" + onOff );
+ 	    assertEquals( onOff.toString(), "off");		
+
+	   }
 	
 	@Test
 	public void testUnify() {

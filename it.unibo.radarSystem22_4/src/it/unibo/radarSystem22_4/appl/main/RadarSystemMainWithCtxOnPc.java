@@ -33,7 +33,7 @@ public class RadarSystemMainWithCtxOnPc implements IApplication{
 		RadarSystemConfig.DLIMIT           = 80;
 		RadarSystemConfig.tracing          = true;
 		RadarSystemConfig.ctxServerPort    = 8756;
-		CommSystemConfig.protcolType = ProtocolType.udp;
+		CommSystemConfig.protcolType = ProtocolType.tcp;
 	}
 	
 	protected void configure() {		

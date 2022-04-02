@@ -1,6 +1,7 @@
 package it.unibo.radarSystem22_4.appl.main;
 
 import it.unibo.radarSystem22.domain.interfaces.*;
+import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
 import it.unibo.radarSystem22_4.appl.RadarSystemConfig;
 import it.unibo.radarSystem22_4.appl.proxy.LedProxy;
 import it.unibo.radarSystem22_4.comm.ProtocolType;
@@ -27,7 +28,7 @@ public class UseLedFromPc implements IApplication{
 	public void setup( String domainConfig, String systemConfig )  {
 		ColorsOut.outappl(" === " + getName() + " ===", ColorsOut.MAGENTA);
 		RadarSystemConfig.DLIMIT           = 80;
-		RadarSystemConfig.raspAddr         = "192.168.1.90";
+		RadarSystemConfig.raspAddr         = "192.168.235.252";
 		RadarSystemConfig.ctxServerPort    = 8756;
 		CommSystemConfig.protcolType = ProtocolType.tcp;
 	}
@@ -62,7 +63,7 @@ public class UseLedFromPc implements IApplication{
 	}	
 	
 	public static void main( String[] args) throws Exception {
-		new UseLedFromPc().doJob(null,null);
+		new UseLedFromPc().doJob("DomainSystemConfig.json","RadarSystemConfig.json");
  	}
 	
 }
