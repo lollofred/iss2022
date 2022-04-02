@@ -39,7 +39,6 @@ public class SonarConcreteObservable extends SonarModelObservable {
 			if (data == null)
 				return;
 			int v = Integer.parseInt(data);
-			// Eliminiamo dati del tipo 3430
 			if (lastSonarVal != v && v < DomainSystemConfig.sonarDistanceMax) {
 				lastSonarVal = v;
 				updateDistance(v);
