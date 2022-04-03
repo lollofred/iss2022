@@ -224,7 +224,7 @@ SonarObservable
 
 <h2>Requirement analysis</h2>
 <div class="remark">
-<p>I componenti che saranno interessati alla distanza, che verrà rappresentata come risorsa osservabile, idealmente potrebbero essere ad esempio il PC o il RaspberryPi. <br>
+<p>I processori che saranno interessati alla distanza idealmente potrebbero essere ad esempio il PC o il RaspberryPi. <br>
     La notifica nel nuovo valore andrà effettuata solo nel momento in cui tale valore sarà significativo.
 </p>
 </div>
@@ -234,7 +234,7 @@ SonarObservable
 <p>La transizione ad un Sonar può essere affrontata pensando il <em>SonarObservable</em> in due modi:</p>
     <ul class="simple">
     <li><b>Modo1:</b> risorsa che ad ogni cambiamento modifica il proprio stato ed invia una notifica agli observer sul nuovo stato (inviando una richiesa al Sonar, che gli fornisce un dato come risposta)</li>
-    <li><b>Modo2:</b> creazione di un oggetto implementato come risorsa osservabile che memorizza la distanza misurata e un processo che avrà il compito di aggiornare tale oggetto (agendo come un componente observer di un Sonar observable)</li>
+    <li><b>Modo2:</b> creazione di un oggetto implementato come risorsa osservabile che memorizza la distanza misurata e un processo che avrà il compito di aggiornare tale oggetto</li>
 </ul>
 <p>Si ritiene preferibile la seconda, cioè optare per un processo che aggiorna l'oggetto senza notificare direttamente sul nuovo stato.   
   Tramite tale scelta, oltre ai vantaggi di avere una risorsa osservabile, si potranno notificare i dati in modo da agevolare l'interoperabilità senza dover mandare l'informazione direttamente agli Observer ma saranno questi a richiedere tale informazione.</p>
