@@ -213,20 +213,19 @@ SonarObservable
         <li><p>i componenti interessati ai valori di distanza prodotti dal <em>SonarObservable</em> sono denominati <em>Observer</em>
         e possono risiedere sullo stesso nodo del <em>SonarObservable</em> (cioè sul RaspberryPi) o su un nodo remoto
         (ad esempio sul PC);</p></li>
-        <li><p>il funzionamento del <em>SonarObservable</em> deve essere testato in modo automatizzato ponendo un ostacolo
-        a distanza fissa <code class="docutils literal notranslate"><span class="pre">DTESTING1</span></code> davanti
-        ad esso, controllando che tutti gli <em>Observers</em> ricevano il valore <code class="docutils literal notranslate"><span class="pre">DTESTING1</span></code>. Dopo un qualche tempo, si modifica
-        la posizione dell’ostacolo a una nuova distanza <code class="docutils literal notranslate"><span class="pre">DTESTING2</span></code> e si controlla che gli tutti gli <em>Observers</em>
-        ricevano il valore <code class="docutils literal notranslate"><span class="pre">DTESTING2</span></code>.</p></li>
         </ul>
 </div>
  
 
 <h2>Requirement analysis</h2>
 <div class="remark">
-<p>I processori che saranno interessati alla distanza idealmente potrebbero essere ad esempio il PC o il RaspberryPi. <br>
-    La notifica nel nuovo valore andrà effettuata solo nel momento in cui tale valore sarà significativo.
-</p>
+<li>Il SonarObservable deve poter inviare informazioni (la distanza misurata) a compontenti software interessate, che chiameremo Observer. </li><br>
+<li>I processori che saranno interessati alla distanza idealmente potrebbero essere ad esempio il PC o il RaspberryPi. </li><br>
+    <li>Gli Observer possono risiedere sullo stesso nodo del SonarObservable, o su un nodo remoto.</li><br>
+    <li>Il SonarObservable deve inviare il valore della distanza misurata solo quando quasta è stata modificata in modo significativo.</li><br>
+    <li>La versione osservabile (SonarObservable) deve utilizzare il dispositivo Sonar introdotto e definito precedentemente.</li><br>
+    <li>La notifica nel nuovo valore andrà effettuata solo nel momento in cui tale valore sarà significativo.</li><br>
+
 </div>
 
 <h2>Problem analysis</h2>
@@ -240,8 +239,20 @@ SonarObservable
   Tramite tale scelta, oltre ai vantaggi di avere una risorsa osservabile, si potranno notificare i dati in modo da agevolare l'interoperabilità senza dover mandare l'informazione direttamente agli Observer ma saranno questi a richiedere tale informazione.</p>
 </div>   
 <h2>Test plans</h2> 
+<div class="remark">
+<p>Il funzionamento del <em>SonarObservable</em> deve essere testato in modo automatizzato ponendo un ostacolo
+    a distanza fissa <code class="docutils literal notranslate"><span class="pre">DTESTING1</span></code> davanti
+    ad esso, controllando che tutti gli <em>Observers</em> ricevano il valore <code class="docutils literal notranslate"><span class="pre">DTESTING1</span></code>. Dopo un qualche tempo, si modifica
+    la posizione dell’ostacolo a una nuova distanza <code class="docutils literal notranslate"><span class="pre">DTESTING2</span></code> e si controlla che gli tutti gli <em>Observers</em>
+    ricevano il valore <code class="docutils literal notranslate"><span class="pre">DTESTING2</span></code>.</p></li>
+</div>   
 <h2>Project</h2> 
-
+<div class="remark">
+<p>Volendo impostare il Sonar come un dispositivo osservabile, introduciamo un nuovo contratto, che estende il precedente attraverso la creazione di un interfaccia <em>ISonarObserver</em> con relativa classe <em>SonarObserver</em> che la implementa. </p>
+<p>Visto l'idea che il Sonar-observable sia un processo che aggiorna il valore  di una distanza osservabile (distanza misurata) che implementa l'interfaccia <em>IDistanceMeasured</em> con relativa classe <em>DistanceMeasured</em> che la implementa. </p>
+<p>Creato un nuovo model <em>SonarObservableModel</em> con relative classi concrete e Mock <em>SonarObservableConcrete</em> e <em>SonarObservableMock</em>.</p>
+<p>La nascita del nuovo tipo di Sonar ci induce a introdurre nuovi metodi in DeviceFactory.</p>
+</div>
 <h2>Testing</h2> 
  
 
