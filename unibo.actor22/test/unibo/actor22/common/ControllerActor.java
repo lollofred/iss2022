@@ -19,7 +19,7 @@ public class ControllerActor extends QakActor22{
 protected int numIter = -1;
 protected IApplMessage getStateRequest ;
 protected boolean on = true;
-private static final int ITERATIONS = 1000;
+private static final int nIteractions = 1000;
 private static final int TIME_BETWEEN_ITERATIONS = 100;
 protected boolean sonarActive = false;
 protected boolean ledRequiredState;
@@ -84,7 +84,7 @@ protected IDistance dist = null;
 			if(sonarActive)
 			{
 				if(msg.msgSender()==ApplData.sonarName) {
-					if(numIter <=ITERATIONS) {
+					if(numIter <=nIteractions) {
 						numIter++;
 						dist = new Distance(msg.msgContent());
 						
