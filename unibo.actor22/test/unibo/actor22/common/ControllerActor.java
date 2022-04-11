@@ -1,7 +1,5 @@
 package unibo.actor22.common;
  
-import org.jetbrains.annotations.Nullable;
-
 import it.unibo.kactor.IApplMessage;
 import it.unibo.radarSystem22.domain.Distance;
 import it.unibo.radarSystem22.domain.interfaces.IDistance;
