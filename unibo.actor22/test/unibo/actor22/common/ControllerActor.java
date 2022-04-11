@@ -131,9 +131,6 @@ protected IDistance dist = null;
 		
 	}
 	
-	
-
-	
 	protected void elabAnswer(IApplMessage msg) {
 		ColorsOut.outappl( getName()  + " | elabAnswer numIter=" + numIter + " "+ msg, ColorsOut.MAGENTA);
  		//CommUtils.delay(100);
