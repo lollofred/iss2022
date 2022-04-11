@@ -19,8 +19,8 @@ public class ControllerActor extends QakActor22{
 protected int numIter = -1;
 protected IApplMessage getStateRequest ;
 protected boolean on = true;
-private static final int nIteractions = 1000;
-private static final int TIME_BETWEEN_ITERATIONS = 100;
+private static final int nIteractions = 100;
+private static final int timeBetweenIteractions = 100;
 protected boolean sonarActive = false;
 protected boolean ledRequiredState;
 protected IDistance dist = null;
@@ -105,7 +105,7 @@ protected IDistance dist = null;
 					String LedState = msg.msgContent();
 					if(LedState.equals(""+ledRequiredState)) {
 						ColorsOut.outappl("Controller | distance="+ dist +" iteration=" + numIter + " led="+ LedState , ColorsOut.GREEN  );
-						BasicUtils.delay(TIME_BETWEEN_ITERATIONS);
+						BasicUtils.delay(timeBetweenIteractions);
 						request( ApplData.getSonarDistance );
 					}else {
 						ColorsOut.outappl(getName() + " | error led state ", ColorsOut.RED);
