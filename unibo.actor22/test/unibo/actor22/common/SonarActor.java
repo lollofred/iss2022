@@ -25,6 +25,7 @@ private ISonar sonar;
 	}
 
 	protected void elabCmd(IApplMessage msg) {
+		ColorsOut.out( getName()  + " | Cmd " + msg, ColorsOut.BLUE);
 		String msgCmd = msg.msgContent();
 		switch( msgCmd ) {
 			case ApplData.cmdActivate    : sonar.activate();break;
@@ -34,6 +35,7 @@ private ISonar sonar;
 	}
 
 	protected void elabRequest(IApplMessage msg) {
+		ColorsOut.out( getName()  + " | Request " + msg, ColorsOut.BLUE);
 		String msgReq = msg.msgContent();
 		//ColorsOut.out( getName()  + " | elabRequest " + msg, ColorsOut.CYAN);
 		switch( msgReq ) {
