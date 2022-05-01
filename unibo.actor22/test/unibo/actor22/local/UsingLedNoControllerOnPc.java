@@ -36,20 +36,8 @@ import unibo.actor22comm.utils.CommUtils;
 		CommSystemConfig.tracing        = false;
 		
  		led = new LedActor( ApplData.ledName );
-		otherLeds();
 		getState = CommUtils.buildRequest("main",  "ask", ApplData.reqLedState, ApplData.ledName); 
    	}
-
-	protected void otherLeds()
-	{
-		//Creo altri Led per verificare che il numero di thread non aumenta
-		for( int i=1; i<=3; i++) {
-			new LedActor(ApplData.ledName+"_"+i);
-			Qak22Util.sendAMsg(ApplData.turnOnLed, ApplData.ledName+"_"+i  );
-			BasicUtils.delay(500);
-			Qak22Util.sendAMsg(ApplData.turnOffLed, ApplData.ledName+"_"+i  );
-		}
-	}
 	
 	//Accende-spegne il Led due volte
 	protected void execute() {

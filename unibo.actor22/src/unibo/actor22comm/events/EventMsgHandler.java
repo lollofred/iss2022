@@ -1,6 +1,8 @@
 package unibo.actor22comm.events;
 
 import java.util.HashMap;
+
+import it.unibo.kactor.ApplMessage;
 import it.unibo.kactor.IApplMessage;
 import unibo.actor22.*;
 import unibo.actor22comm.utils.ColorsOut;
@@ -28,19 +30,22 @@ protected HashMap<String,String> eventObserverMap = new HashMap<String,String>()
 		}else if( msg.isDispatch() && msg.msgId().equals(Qak22Context.unregisterForEvent)) {
 			ColorsOut.outappl(myName + " unregister:" + msg.msgSender() + " for "+ msg.msgContent(), ColorsOut.MAGENTA);
 			eventObserverMap.remove(msg.msgSender(), msg.msgContent());
-		}else if( msg.isEvent()) {
+		}else if( msg.isEvent() ) {
  			updateTheObservers( msg );
 		}else {
 			ColorsOut.outerr(myName + " msg unknown");
 		}
-	}
+	}  
 
 	protected void updateTheObservers(IApplMessage msg) {
+		//ColorsOut.outappl("updateTheObservers:" + msg, ColorsOut.MAGENTA); 
 		eventObserverMap.forEach(
 				( String actorName,  String evName) -> {
-					ColorsOut.outappl("updateTheObservers:" + actorName + " evName" + evName, ColorsOut.MAGENTA); 
-					if( evName.equals(msg.msgId()) ) {
-						Qak22Util.sendAMsg( msg,  actorName);
+					//ColorsOut.out("updateTheObservers:" + actorName + " evName:" + evName, ColorsOut.MAGENTA); 
+					if( evName.equals( msg.msgId()) ) {
+						IApplMessage m = Qak22Util.buildEvent(msg.msgSender(), msg.msgId(), msg.msgContent(), actorName ) ;
+						Qak22Util.sendAMsg( m );
+						//Warning: we must declare a remote observer
 					}
 		} ) ;
 	}

@@ -1,6 +1,5 @@
 package unibo.actor22comm.context;
 
-import java.util.HashMap;
 import it.unibo.kactor.IApplMessage;
 import unibo.actor22.Qak22Context;
 import unibo.actor22.Qak22Util;
@@ -17,8 +16,6 @@ import unibo.actor22comm.utils.ColorsOut;
  */
 
 public class ContextMsgHandler extends ApplMsgHandler implements IApplMsgHandler{ 
-//	protected HashMap<String,IApplMsgHandler> handlerMap = new HashMap<String,IApplMsgHandler>(); //OLD
-
  	
 	public ContextMsgHandler(String name) {
 		super(name);
@@ -35,9 +32,9 @@ public class ContextMsgHandler extends ApplMsgHandler implements IApplMsgHandler
 	protected void elabRequest( IApplMessage msg, Interaction2021 conn ) {
 		String senderName = msg.msgSender();
 		//Attivo un attore per ricevere la risposta
-		String actorRepyName = Qak22Context.actorReplyPrefix+senderName;
+		String actorRepyName = Qak22Context.actorReplyPrefix+senderName+"_"+msg.msgNum(); //thanks Filoni
 		if( Qak22Context.getActor(actorRepyName) == null ) { //non esiste già
-			ColorsOut.out(name + " | CREATE ACTOR FOR REPLY " + msg, ColorsOut.BLUE);
+			ColorsOut.out(name + " | CREATE ACTOR " + actorRepyName + " FOR REPLY " + msg, ColorsOut.GREEN);
 			new ActorForReply(actorRepyName, this, conn);
 		}		
 		elabNonRequest(msg,conn);

@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <!--
+<link rel="stylesheet" type="text/css" href="../css/issStyle1.css">
+<script type="text/javascript" src="../css/issStyle.js"></script>
+-->
+<style type="text/css">
+body
+{
+    margin-left:  30px;
+    margin-right: 30px;
+};
+
+P
+{
+    font-family: Tahoma;
+    font-size: 10pt;
+};
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+	font-size: 93%;
+}
+
+a:hover {
+    background-color: #cccccc;
+}
+
+
+hr {
+    clear: both;
+    height: 1px;
+    color: #242424;
+    background-color: transparent;
+}
+
+h1, h2, h3 {
+    color: #242424;
+    clear: left;
+    font: 100% Tahoma, Helvetica, Arial, sans-serif;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+top {
+	width: 100%;
+}
+
+
+#i {
+    color: #ff1010;
+}
+tt{
+	font-family: "Arial";
+    font-size: 90%;
+	color: #006600;
+}
+em{
+	font-family: "Arial";
+    font-size: 80%;
+	font-weight: bold;
+	border-style:solid;
+	border-color: #abe876;
+    color: #1632cc;
+}
+bc{
+	font-family: "Arial";
+	font-size: 90%;
+	font-weight: bold;
+    color: #990000;
+	background-color: #fcf8c7;
+}
+ks{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #0000CD	;
+	font-size: 90%;
+}
+kc{
+	font-family: "Arial";
+	font-weight: bold;
+    color: #008000	;
+	font-size: 90%;
+}
+pre{
+	font-family: "Consolas";
+	font-size: 85%;
+	background-color: #f5f5f5;
+	border: 1.5px solid silver;
+	padding: 5px;
+}
+m{
+	font-family: "Helvetica";
+	line-height: 100%;
+ 	font-size: 75%;
+}
+div.body{
+	 
+    font-size: 18px;
+}
+k{
+    color: #990000;
+	font-weight: bold;
+	font-size: 90%;
+}
+h1 {
+    font-size: 150%;
+    background-color: #b2c0ff;
+	padding: 10px;
+}
+
+h2 {
+    background-color: #9ed8ff;
+    font-size: 130%;
+}
+
+h3 {
+	background-color: #e6ccff;
+    font-size: 100%;
+}
+h4 {
+    background-color: #ccffcc;
+    font-size: 100%;
+	width: 95%;
+	border-radius: 5px;
+	padding: 2px;
+}
+h5 {
+    background-color: #d5ffb0;
+    font-size: 100%;
+
+}
+div.req{
+	background-color: #d9ffb3;
+    font-size: 18px;
+	width: 700px;
+    border: 3px solid green;
+    padding: 15px;
+    margin: 10px;
+}
+div.remark{
+	background-color: #E3F2FD;
+    border: 1.5px solid #d5f2ed;
+    padding: 15px;
+    margin: 10px;
+	border-radius: 25px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+ol, ul, li {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+img {
+	border: 1.5px solid #d5f2ed
+
+}
+
+a, a:visited, a:active, a:link, a:hover {
+    text-decoration: underline;
+    color: #545454;
+    background-color: transparent;
+}
+
+div.wrapdesc{
+	width: 90%;
+	margin: auto;
+}
+
+div.imagedesc{
+	width: 85%;
+	margin: auto;
+}
+</style>
+    
+<head>
+   
+<title>RobotCleaner</title></head>
+    
+<body>
+<div id="top">
+<h1>LABORATORIO DI INGEGNERIA DEI SISTEMI SOFTWARE <font size="5"></font> </h1>
+</div>  
+
+<div class="body"> 
+<h2>Introduction</h2>
+<div class="remark">
+    RobotCleaner
+</div>
+ 
+ 
+<h2>Requirements</h2>
+<div class="remark">
+    Muovere il VirtualRobot in modo da coprire tutta la superficie di una stanza vuota.
+</div>
+ 
+
+<h2>Requirement analysis</h2>
+<div class="remark">
+    <li>Il VirtualRobot &egrave; quello introdotto in <a class="reference internal" href="VirtualRobot.html"><span class="std std-ref">VirtualRobot</span></a>. 
+        &Egrave; capace di muoversi liberamente in tutte le direzioni e ha a disposizione un sensore che gli permette di riconoscere le collisioni con i muri.
+    <li>La stanza ha forma rettangolare, pavimento piano privo di ostacoli ed &egrave; delimitata da muri.
+    <li>Il robot parte da una posizione predefinita, nell'angolo in alto a sinistra.
+    <li>Il robot deve seguire una strategia di movimento che garantisca di esplorare l'intera superficie, muovendosi in modo autonomo fino al completamento.
+    </li>
+</div>
+
+<h2>Problem analysis</h2>
+<div class="remark">
+    I principali problemi emersi sono i seguenti:
+    <li>Definire una strategia che permetta di soddisfare il requisito di completamento del lavoro in modo autonomo.
+        <br>
+        Una prima possibile strategia &egrave; quella del <b>movimento per colonne</b>: il robot procede lungo il muro a sinistra, una volta incontrato il muro in basso effettua un passo verso destra
+            e risale. Poi, incontrato il muro in alto fa nuovamente un passo a destra e procede verso il basso, e cos&igrave; via.
+            <br>
+            <br>
+             <center><img src="img/colonne.png" width="20%"></img></center>
+            
+        <br>
+        Analogamente si pu&ograve; sfruttare il <b>movimento per righe</b>: il robot procede lungo il muro in alto, una volta incontrato il muro a destra effettua un passo verso il basso
+        e procede verso sinistra. Poi, incontrato il muro a sinistra fa nuovamente un passo verso il basso e procede verso destra, e cos&igrave; via.
+        <br>
+        <br>
+             <center><img src="img/righe.png" width="20%"></img></center>
+            <br>
+        
+        In alternativa, possiamo adottare un <b>movimento "a chiocciola"</b>: inizialmente il robot percorre l'intero perimetro della stanza, procedendo lungo i muri. Al passo 
+            successivo, prima di tornare al punto iniziale, cambia direzione e ripercorre il perimetro più interno. E cos&igrave; via.
+            <br>
+            <br>
+                 <center><img src="img/chioccia.png" width="20%"></img></center>
+                <br>
+    <li> Quando viene fermato il RobotCleaner, in che modo riprendere l'esecuzione: se ripartire dal punto iniziale o riprendere da dove era rimasto seguendo la strategia precedentemente adottata.
+    </li>
+    
+</div>
+
+<h2>Test plans</h2> 
+<div class="remark">
+    <li> Calcolare il tempo di completamento di ogni singola strategia sopra descritta.
+    <li> Una volta scelta la strategia e messo in attivit&agrave; il RobotCleaner, calcolare il tempo di esecuzione.
+    <li> Confrontare il tempo di esecuzione con il tempo previsto. Se differisce, &egrave; probabile che si sia verificato un errore.
+</li>
+</div>
+
+<h2>Project</h2> 
+<div class="remark">
+   
+</div>
+
+<h2>Testing</h2> 
+<div class="remark">
+   
+</div>
+
+<h2>Deployment</h2> 
+<div class="remark">
+
+</div>
+ 
+<h2>Maintenance</h2> 
+<div class="remark">
+
+</div>
+
+<h2>Self Evaluation</h2> 
+<div class="remark">
+    In generale l'analisi dei requisiti &egrave; coerente con quanto discusso durante la lezione. 
+    Per quanto riguarda la parte di analisi del problema si sono individuate strategie differenti e una problematica aggiuntiva riguardante la ripresa dell'esecuzione in caso di stop.
+    Nel complesso ritengo che l'analisi sia completa e corretta.
+</div>
+ 
+<!-- USEFUL
+<table style="width:100%" border="1">
+<tr>
+<td style="width:50%">
+</td>
+<td></td>
+</tr>
+</table>
+-->
+	      	
+<br/><br/> 	
+</div>  
+
+<div style="background-color:rgba(86, 56, 253, 0.9); width:100%;text-align:left;color:white">
+    <p style="float: left; width: 78%; padding: 5px">
+		By <b>Lorenzo Di Palma</b><br/><br/>
+		<span><b>ISS repo: <a id="issRepo" style="color:white" href="https://github.com/lollofred/iss2022">https://github.com/lollofred/iss2022</a></b></span><br/><br/>
+		Contacts:<br/>
+		e-mail: lorenzo.dipalma2@studio.unibo.it  <br/>
+		GitHub: <a id="github" style="color:white" href="https://github.com/lollofred">lollofred</a><br/>
+	</p>
+<img src="./img/lorenzo.jpg" alt="Lorenzo Di Palma" width="20%" height="25%">
+</div> 
+</body>
+</html>
